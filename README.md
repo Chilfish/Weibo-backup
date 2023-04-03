@@ -10,6 +10,7 @@ Speechless 是一个帮助新浪微博用户，把微博内容导出成 HTML 进
 
 - **火狐用户：** 火狐可以直接在 `about:addons` 页面中将 zip 拖进去
 - **Chrome 或 Edge** 等 Chromium 用户：则需要先将 zip 解压再在拓展管理页中加载解压的文件夹
+- **油猴脚本**：可以直接加载 Release 下的 [Weibo-backup.user.js](https://github.com/Chilfish/Weibo-backup/raw/main/Weibo-backup.user.js)
 
 ## 简介
 
