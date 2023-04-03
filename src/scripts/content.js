@@ -460,7 +460,6 @@
   const checkIfFinished = function () {
     if (forcePause) return false;
     $('.speechless-action').hide();
-    $('.speechless-fetching').hide();
     $('.speechless-done').show();
     switchEmoji('done');
     return true;
@@ -573,6 +572,7 @@
 
     if (checkIfFinished()) {
       exportFile();
+      saveText(imgsList.join(',\n'), `imgs-lists.txt`);
     }
   };
 
