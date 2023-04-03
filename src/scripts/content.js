@@ -338,6 +338,7 @@
       $speechlessMain.append(`
         <div class="speechless-action">
           <span class="speechless-tips">📦 把<span class="speechless-username">@${username}</span>的记忆打包...</span>
+          <div id="speechless-wait"></div>
           <div class="input"><div>
               <span>从第</span>
               <input type="number" id="speechless-begin" min="0" max="1000" value="0">
@@ -373,31 +374,9 @@
     $progressBar = $('.speechless-progress-bar');
 
     $(document).on('click', '#doSpeechless', async () => {
-      page = $('#speechless-begin').val() * 5;
-      cnt = page / 5;
-      if (!page) page = 1;
-      else count = page * 20;
-
-      // 一定得等 since_id 拿到了才能开始
-      for (let i = 1; i <= page / 5; i++) {
-        const data = await fetchData({
-          url: GetPostsURL,
-          parameters: {
-            uid,
-            page: i,
-            since_id,
-            feature: 0,
-          },
-        });
-        since_id = data.since_id;
-        total = data.total;
-        if (page > total / 20) {
-          console.error('超出范围');
-          return;
-        }
-      }
-
-      mainFetch();
+      $('#speechless-wait').text('🤐 请稍等，正在努力加载中...');
+      page = $('#speechless-begin').val();
+      Start();
     });
 
     $(document).on('click', '#exportFile', () => {
@@ -434,6 +413,38 @@
     $(document).on('change', '#ifShowInteraction', function () {
       toggleClass(this.checked, 'showinteraction');
     });
+  };
+
+  const Start = async function () {
+    if (!page) {
+      page = 1;
+      mainFetch();
+      return;
+    }
+
+    count = page * 100;
+    cnt = page;
+    page *= 5;
+
+    const data = await fetchData({
+      url: GetPostsURL,
+      parameters: {
+        uid,
+        page: page - 1,
+        since_id,
+        feature: 0,
+      },
+    });
+
+    since_id = data.since_id;
+    total = data.total;
+    if (page > total / 20) {
+      $('#speechless-wait').text('😵‍💫 你的记忆太少了，没有这么多页');
+      return;
+    }
+
+    $('#speechless-wait').text('');
+    mainFetch();
   };
 
   // 开始拉取时，面板的状态
@@ -527,12 +538,6 @@
   // 获取所有的微博
   const fetchPost = async function () {
     while (loadMore && !forcePause) {
-      // 每 5 页导出一次
-      if (page % 5 === 0) {
-        exportFile();
-        await delay(1000);
-      }
-
       try {
         let data = await fetchData({
           url: GetPostsURL,
@@ -556,6 +561,13 @@
         }
       } catch (err) {
         console.error(err);
+      } finally {
+        // 每 5 页导出一次
+        if (page % 5 === 0) {
+          console.log('exported', cnt);
+          exportFile();
+          await delay(1000);
+        }
       }
     }
 
