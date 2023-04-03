@@ -1,6 +1,6 @@
 # Speechless
 
-![image](https://raw.githubusercontent.com/Chilfish/Weibo-backup/V2.0/medias/Small%20promo%20tile.png)
+![image](https://raw.iqiq.io/Chilfish/Weibo-backup/main/medias/Small%20promo%20tile.png)
 
 Speechless 是一个帮助新浪微博用户，把微博内容导出成 HTML 进行本地备份的 Extension。
 
@@ -20,19 +20,19 @@ Speechless 是一个帮助新浪微博用户，把微博内容导出成 HTML 进
 
 ## 简介
 
-![ScreenShots-1](https://raw.githubusercontent.com/Chilfish/Weibo-backup/V2.0/medias/ScreenShots-1.png)
+![ScreenShots-1](https://raw.iqiq.io/Chilfish/Weibo-backup/main/medias/ScreenShots-1.png)
 
-![ScreenShots-2](https://raw.githubusercontent.com/Chilfish/Weibo-backup/V2.0/medias/ScreenShots-2.png)
+![ScreenShots-2](https://raw.iqiq.io/Chilfish/Weibo-backup/main/medias/ScreenShots-2.png)
 
-![ScreenShots-4](https://raw.githubusercontent.com/Chilfish/Weibo-backup/V2.0/medias/ScreenShots-4.png)
+![ScreenShots-4](https://raw.iqiq.io/Chilfish/Weibo-backup/main/medias/ScreenShots-4.png)
 
 **更改后的样式：**
 
-![img](https://raw.githubusercontent.com/Chilfish/Weibo-backup/V2.0/medias/3.png)
+![img](https://raw.iqiq.io/Chilfish/Weibo-backup/main/medias/3.png)
 
-![img](https://raw.githubusercontent.com/Chilfish/Weibo-backup/V2.0/medias/1.png)
+![img](https://raw.iqiq.io/Chilfish/Weibo-backup/main/medias/1.png)
 
-![img](https://raw.githubusercontent.com/Chilfish/Weibo-backup/V2.0/medias/2.png)
+![img](https://raw.iqiq.io/Chilfish/Weibo-backup/main/medias/2.png)
 
 ## 功能
 
