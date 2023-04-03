@@ -375,7 +375,7 @@
 
     $(document).on('click', '#doSpeechless', async () => {
       $('#speechless-wait').text('🤐 请稍等，正在努力加载中...');
-      page = $('#speechless-begin').val();
+      page = Number($('#speechless-begin').val());
       Start();
     });
 
@@ -417,7 +417,6 @@
 
   const Start = async function () {
     if (!page) {
-      page = 1;
       mainFetch();
       return;
     }
@@ -536,9 +535,10 @@
 
   // 获取所有的微博
   const fetchPost = async function () {
+    if (!page) page = 1;
     while (loadMore && !forcePause) {
       try {
-        let data = await fetchData({
+        const data = await fetchData({
           url: GetPostsURL,
           parameters: {
             uid,
@@ -562,7 +562,7 @@
         console.error(err);
       } finally {
         // 每 5 页导出一次
-        if (page % 5 === 0) {
+        if (page % 5 === 0 && !page) {
           console.log('exported', cnt);
           exportFile();
           await delay(1000);
