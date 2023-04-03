@@ -18,6 +18,12 @@ Speechless 是一个帮助新浪微博用户，把微博内容导出成 HTML 进
 
 > 由于每次循环他都是以 20 条微博为单位分页的，所以点击暂停时，并不会立刻暂停，而是会等到这 20 条队列的完成
 
+其中，Download.py 的必选参数如下
+
+- `-u`: 用户 uid
+- `-p`: 图片list 的路径
+
+
 ## 简介
 
 ![ScreenShots-1](https://raw.iqiq.io/Chilfish/Weibo-backup/main/medias/ScreenShots-1.png)
