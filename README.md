@@ -12,6 +12,12 @@ Speechless 是一个帮助新浪微博用户，把微博内容导出成 HTML 进
 - **Chrome 或 Edge** 等 Chromium 用户：则需要先将 zip 解压再在拓展管理页中加载解压的文件夹
 - **油猴脚本**：可以直接加载 Release 下的 [Weibo-backup.user.js](https://github.com/Chilfish/Weibo-backup/raw/main/Weibo-backup.user.js)
 
+选择 （导出）图片链接后，会有一个包含微博里所有原图的 `imgs-lists.txt`，需要用 [Download.py](https://github.com/Chilfish/Weibo-backup/blob/main/download.py) 来下载他们
+
+需要注意的是，这是以每 100 条微博分页导出的，也能手动先暂停，等它停下来后选择 **分页** 来将该部分导出
+
+> 由于每次循环他都是以 20 条微博为单位分页的，所以点击暂停时，并不会立刻暂停，而是会等到这 20 条队列的完成
+
 ## 简介
 
 ![ScreenShots-1](https://raw.githubusercontent.com/Chilfish/Weibo-backup/V2.0/medias/ScreenShots-1.png)
@@ -36,13 +42,11 @@ Speechless 是一个帮助新浪微博用户，把微博内容导出成 HTML 进
 2. 通过 Ajax 不断去拉取该用户可见的微博内容，当内容中有长文时，额外通过接口获取长文信息
 3. 同时也支持 普通转发、卡片式转发、多图、@ 用户等的跳转
 4. 将拉取到的微博内容，添加到页面的节点上，并且设置基本的样式和布局
-5. 其中，会将里面出现的所有图片以原图链接的形式，导出到 imgs-lists.txt 中，再用 [download.py](download.py) 下载里面的原图
+5. 其中，会将里面出现的所有图片以原图链接的形式，导出到 imgs-lists.txt 中，再用 [download.py](https://github.com/Chilfish/Weibo-backup/blob/main/download.py) 下载里面的原图
 6. 在爬取的过程中，将以每 100 条微博作为分页间隔，自动导出 HTML
 7. 可以指定开始的页数，并请等待几秒，让它获取到该页的数据
 8. 同时能随时预览当前页数微博的导出样式
 9. 最后，点击 **分页链接** 将导出图片链接
-
-> 由于每次循环他都是以 20 条微博为单位分页的，所以点击暂停时，并不会立刻暂停，而是会等到这 20 条队列的完成
 
 实测基本每条微博的爬取为 1 秒左右，主要耗费在了获取转发的内容和获取多图
 
