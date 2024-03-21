@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> 该仓库不再维护，请迁移到使用更方便的 [Weibo archiver](https://github.com/chilfish/weibo-archiver)
+
 # Speechless
 
 ![image](https://raw.iqiq.io/Chilfish/Weibo-backup/main/medias/Small%20promo%20tile.png)
